@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+  <title>Inicio</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="css/estilos.css" type="text/css" rel="stylesheet">
+  <link href="css/reloj.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <script src="js/metodos.js"></script>
+  <link rel="icon" href="icon/logonuevo.ico" >
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  
+
+
+  
+  
+
+</head>
+<body>
+    
+    <header class="header2">
+		<section id="logo1">
+			<img src="img/fondo.png" width="100" height="80" />
+             
+		
+		</section>
+		
+			    <div class="logo">Valle del encanto</div>
+			    <nav>
+			<a href="Inicio.html">Inicio</a>
+			<a href="Quienes.html">Quienes Somos</a>
+			<a href="Galeria.html">Galeria</a>
+            <a href="Registro.html">Registro</a>
+            <a >
+                <div class="modo" id="modo">
+                    <i class="fas fa-toggle-on"></i>
+                     
+                </div>  
+            </a>
+                 
+            
+           
+
+            
+		</nav> 
+        
+    </section>
+   
+
+    
+
+</header>
+
+
+
+        
+<h3>Formulario</h3>
+<p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()" >
+Complete el siguiente formulario con todos los datos solicitados para generar el buen ingreso de ellos.
+</p>
+
+<script>
+function mouseDown() {
+  document.getElementById("myP").style.color = "red";
+}
+
+function mouseUp() {
+  document.getElementById("myP").style.color = "blue";
+}
+</script>
+
+</body>
+</html>
+          </head>
+          <body>
+              <div class="container">
+                  
+                  <form action="#" method="post" name="datos">
+                      <div class="form-group">
+                          <label for="rut">Rut: </label>
+                          <input type="text" id="rut" name="rut" placeholder="Digite su rut.."
+                           required class="form-control" minlength="10">
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="nom">Nombre: </label>
+                          <input type="text" id="nom" name="nom" placeholder="Digite su nombre.."
+                           required class="form-control" minlength="3" onchange="upperText(this)">
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="apeP">Apellido Paterno: </label>
+                          <input type="text" id="apeP" name="apeP" placeholder="Digite su apellido paterno.."
+                           required class="form-control" minlength="3" onchange="upperText(this)">
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="apeM">Apellido Materno: </label>
+                          <input type="text" id="apeM" name="apeM" placeholder="Digite su apellido materno.."
+                           required class="form-control" minlength="3" onchange="upperText(this)">
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="fecha">Fecha de nacimiento: </label>
+                          <input type="date" id="fecha" name="fecha" placeholder="Seleccione fecha de nacimiento.."
+                           required class="form-control">
+                      </div>
+                      
+                      <div class="form-group">
+                          <label for="edad">Edad: </label>
+                          <input type="number" id="edad" name="edad" placeholder="Digite su edad.."
+                           required class="form-control" min="14" max="110">
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="genero">Género</label>
+                          <select id="genero" class="form-control">
+                              <option value="0">Seleccione género..</option>
+                              <option value="1">Mujer</option>
+                              <option value="2">Hombre</option>
+                              <option value="3">Otro género</option
+                                required class="form-control">
+                          </select>
+                         
+                      </div>
+          
+                      
+          
+                      <div class="form-group">
+                          <textarea id="carta" class="form-control" rows="7" onmousemove="colorGreen(this)" 
+                                  onmouseout="colorBlanco(this)">
+          
+                          </textarea>
+                      </div>
+                      <input type="submit" value="Enviar" class="btn btn-primary">
+                      
+                      <input type="reset" value="Limpiar" class="btn btn-warning"> 
+                  </form>
+                  <div id="error">
+          
+                  </div>
+                   
+          
+          
+              </div>
+
+ 
+          
+
+              <script>
+                $(document).ready(function(){
+        
+                    $("#enviar").click(function(){
+                        $.get("https://mindicador.cl/api/dolar",function(data){
+        
+                            $.each(data.serie,function(i,item){
+                                $("#categorias").append("<tr><td>" + item.fecha + "</td><td>"+ item.valor );
+        
+                            });
+        
+                        })
+        
+                    });
+                });
+        
+            </script>
+        </head>
+        <body>
+            <div class="container">
+                <h3>Ultimos Cambios Del Dolar</h3><br<br>
+        
+                <input type="button" value="Revisar" id="enviar" class="btn btn-success"> <br><br>
+                <table class="table" id="categorias">
+                    <thead>                     
+                        <tr>                   
+                            <th>Fecha</th>         
+                            <th>Valor Dolar</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>                  
+        
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="wrap">
+        <div class="widget">
+            <div class="fecha">
+    
+                <p id="diaSemana" class="diaSemana"></p>
+                <p id="dia" class="dia"></p>
+                <p>de </p>
+                <p  id="mes" class="mes"></p>
+                <p>del </p>
+                <p id="year" class="year"></p>
+            </div>
+    
+            <div class="reloj">
+    
+                <p id="horas" class="horas"></p>
+                <p>:</p>
+                <p id="minutos" class="minutos"></p>
+                <p>:</p>
+    
+            <div class="caja-segundos">
+                <p id="ampm" class="ampm"></p>
+                <p id="segundos" class="segundos"></p>
+            </div>
+        </div>
+    </div>
+        
+    
+<footer>
+   
+  <div class="container-footer-all">
+   
+       <div class="container-body">
+
+           <div class="colum1">
+               <h1>Más información sobre la compañía aquí</h1>
+
+               <p>A continuación, se encuentran nuestras redes y métodos de contacto. </p>
+
+           </div>
+
+           <div class="colum2">
+
+               <h1>Las Redes Sociales</h1>
+
+               <div class="row">
+                   <img src="icon/facebook.png">
+                   <label>Nuestro Facebook</label>
+               </div>
+               <div class="row">
+                   <img src="icon/twitter.png">
+                   <label>Nuestro Twitter</label>
+               </div>
+               <div class="row">
+                   <img src="icon/instagram.png">
+                   <label>Nuestro Instagram</label>
+               </div>
+               
+           </div>
+
+           <div class="colum3">
+
+               <h1>Información de Contacto</h1>
+
+               <div class="row2">
+                   <img src="icon/house.png">
+                   <label> ValleEncanto 411
+                   </label>
+               </div>
+
+               <div class="row2">
+                   <img src="icon/smartphone.png">
+                   <label>+569 41001278</label>
+               </div>
+
+               <div class="row2">
+                   <img src="icon/contact.png">
+                    <label>Jvalledelencanto@gmail.com</label>
+               </div>
+
+           </div>
+
+       </div>
+   
+   </div>
+   
+   <div class="container-footer">
+          <div class="footer">
+               <div class="copyright">
+                Juan Guillermo Lecaros Duarte ©2023 Todos los Derechos Reservados. | <a href="">Jardineria.</a>
+               </div>
+
+               <div class="information">
+                   <a href="">Información Compañía</a> | <a href="">Privación y Política</a> | <a href="">Términos y Condiciones.</a>
+               </div>
+           </div>
+
+       </div>
+
+</footer>
+
+
+    
+    <script src="js/js.js"></script>
+    <script src="js/reloj.js"></script>
+    <script src="https://kit.fontawesome.com/03a89292db.js" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
